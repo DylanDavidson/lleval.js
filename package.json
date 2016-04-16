@@ -1,0 +1,19 @@
+{
+  "author": "Dylan Davidson <ddavidson621@gmail.com>",
+  "name": "lleval.js",
+  "description": "JavaScript API wrapper for LLEval API for evaluating scripts in many languages",
+  "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/DylanDavidson/lleval.js"
+  },
+  "main": "./lib/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "hint-hint": "~0.3.0",
+    "tap": "~0.3.1"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.6"
+  }
+}
