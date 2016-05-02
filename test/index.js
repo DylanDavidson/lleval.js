@@ -7,7 +7,7 @@ describe('lleval', function() {
     var language = "js";
     var code = "console.log('test');";
 
-    context('when no code is given', function() {
+    context('when null is given as the code', function() {
       var code = null;
 
       it('should pass a NoSourceError to the callback', function() {
@@ -17,7 +17,17 @@ describe('lleval', function() {
       });
     });
 
-    context('when no language is given', function() {
+    context('when a blank string is given as the code', function() {
+      var code = "    ";
+
+      it('should pass a NoSourceError to the callback', function() {
+        LLEval.eval("js", code, function(err, res) {
+          expect(err).to.be.an.instanceof(LLEval.NoSourceError);
+        });
+      });
+    });
+
+    context('when null is given as the language', function() {
       var language = null;
 
       it('should pass a NoLanguageError to the callback', function () {
@@ -27,8 +37,13 @@ describe('lleval', function() {
       });
     });
 
-    context('when an invalid language is given', function() {
-      it('should pass a InvalidLanguageError to the callback', function () {
+    context('when a blank string is given as the language', function() {
+      var language = "   ";
+
+      it('should pass a NoLanguageError to the callback', function () {
+        LLEval.eval(language, code, function(err, res) {
+          expect(err).to.be.an.instanceof(LLEval.NoLanguageError);
+        });
       });
     });
   });
